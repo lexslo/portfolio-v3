@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex Meadows - Portfolio</title>
+    
+    <!-- Enforce dark color scheme for native browser elements (like audio players and scrollbars) -->
+    <meta name="color-scheme" content="dark">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#121212',
+                        lightText: '#E0E0E0',
+                        accent: '#4DD0E1',
+                        accentHover: '#B2EBF2',
+                        borderSubtle: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom accessibility and structural styles */
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Highly visible focus states for keyboard navigation */
+        *:focus-visible {
+            outline: 3px solid #4DD0E1 !important;
+            outline-offset: 4px !important;
+            border-radius: 2px;
+        }
+
+        /* Remove default focus if focus-visible is supported */
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        /* Minimalist styling for native audio elements */
+        audio {
+            width: 100%;
+            height: 40px;
+            margin-top: 1rem;
+            outline: none;
+            border-radius: 4px;
+        }
+        
+        /* Skip link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #4DD0E1;
+            color: #121212;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body class="font-sans leading-relaxed selection:bg-accent selection:text-darkBg">
+
+    <a href="#main-content" class="skip-link font-semibold">Skip to main content</a>
+
+    <header class="sticky top-0 z-50 bg-darkBg/95 backdrop-blur-sm border-b border-borderSubtle">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <a href="#" class="text-xl font-bold tracking-wide text-lightText hover:text-accent transition-colors" aria-label="Lex Meadows Home">
+                Lex Meadows
+            </a>
+            <nav aria-label="Main Navigation">
+                <ul class="flex flex-wrap gap-6 text-sm font-semibold tracking-wider uppercase">
+                    <li><a href="#about" class="hover:text-accent transition-colors">About</a></li>
+                    <li><a href="#work" class="hover:text-accent transition-colors">Work</a></li>
+                    <li><a href="#music" class="hover:text-accent transition-colors">Music</a></li>
+                    <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="max-w-5xl mx-auto px-6 py-12 md:py-24">
+        
+        <section id="about" class="mb-24 md:mb-32 scroll-mt-24" aria-label="About Me">
+            <div class="flex flex-col md:flex-row gap-10 items-start">
+                <div class="w-full md:w-1/3 shrink-0">
+                    <img src="assets/images/headshot-side-2025.jpeg" 
+                         alt="A non-binary person with short strawberry blonde hair wearing a blue and red patterned shirt in front of trees" 
+                         class="w-full max-w-sm rounded-lg object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-borderSubtle">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Hi, I'm Lex.</h1>
+                    <p class="text-lg text-gray-400 mb-6 font-mono text-sm">
+                        Pronouns: they/them/theirs
+                    </p>
+                    <div class="space-y-4 text-lg">
+                        <p>
+                            I am a software engineer, audio engineer, and composer with 10+ years of experience working in Higher Education and 6+ years of digital accessibility experience.
+                        </p>
+                        <p>
+                            I am always looking to implement experimental sound design principles in a technical environment to expand the horizons of what is possible in the audio world.
+                        </p>
+                        <p class="font-semibold text-white mt-8 border-l-4 border-accent pl-4">
+                            My goal is to design new and exciting tools for the enjoyment of humanity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="mb-24 md:mb-32 scroll-mt-24" aria-labelledby="work-heading">
+            <h2 id="work-heading" class="text-3xl font-bold mb-8 pb-4 border-b border-borderSubtle text-white">Work / Code</h2>
+            
+            <div class="flex flex-col gap-12">
+                <!-- Project 1 -->
+                <article class="group">
+                    <header class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-2">
+                        <h3 class="text-2xl font-semibold text-white">Delazed</h3>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider">Digital Audio Effect Plug-in</span>
+                    </header>
+                    <p class="text-gray-300 mb-4">Role: Creator, UI/UX Design</p>
+                    <ul class="flex flex-wrap gap-2 mb-4" aria-label="Technologies used">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">C++</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">JUCE</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">XCode</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/lexslo/delazed" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            GitHub <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="group">
+                    <header class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-2">
+                        <h3 class="text-2xl font-semibold text-white">Happy Harvesters</h3>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider">Browser Based Game</span>
+                    </header>
+                    <p class="text-gray-300 mb-4">Role: Backend Developer</p>
+                    <ul class="flex flex-wrap gap-2 mb-4" aria-label="Technologies used">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Node.js</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Express.js</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">MongoDB</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">React</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">GraphQL</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/lexslo/apple-orchard-games" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            GitHub <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        <a href="https://happy-harvesters.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            Deployed <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="group">
+                    <header class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-2">
+                        <h3 class="text-2xl font-semibold text-white">Randm</h3>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider">Dating App</span>
+                    </header>
+                    <p class="text-gray-300 mb-4">Role: Full Stack Developer</p>
+                    <ul class="flex flex-wrap gap-2 mb-4" aria-label="Technologies used">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">JavaScript</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">HTML</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">CSS</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">mySQL</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Express.js</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/lexslo/randm" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            GitHub <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        <a href="https://ran-dm.herokuapp.com/chat" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            Deployed <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="group">
+                    <header class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-2">
+                        <h3 class="text-2xl font-semibold text-white">Making Waves</h3>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider">Tech Blog</span>
+                    </header>
+                    <p class="text-gray-300 mb-4">Role: Creator, Full Stack Developer</p>
+                    <ul class="flex flex-wrap gap-2 mb-4" aria-label="Technologies used">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">JavaScript</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">mySQL</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Express.js</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Node.js</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/lexslo/making-waves" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            GitHub <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        <a href="https://lexslo-making-waves.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            Deployed <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="group">
+                    <header class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-2">
+                        <h3 class="text-2xl font-semibold text-white">Koality of Life</h3>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider">Web Application</span>
+                    </header>
+                    <p class="text-gray-300 mb-4">Role: JavaScript and UI/UX Design</p>
+                    <ul class="flex flex-wrap gap-2 mb-4" aria-label="Technologies used">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">JavaScript</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">HTML</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">CSS</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">ZURB Foundation</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/lexslo/koality-of-life" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            GitHub <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        <a href="https://lexslo.github.io/koality-of-life/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            Deployed <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="group">
+                    <header class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-2">
+                        <h3 class="text-2xl font-semibold text-white">Weather Dashboard</h3>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider">Web Application</span>
+                    </header>
+                    <p class="text-gray-300 mb-4">Role: Creator, UI/UX Design</p>
+                    <ul class="flex flex-wrap gap-2 mb-4" aria-label="Technologies used">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">JavaScript</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">HTML</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">CSS</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Bootstrap</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/lexslo/weather-dashboard" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            GitHub <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        <a href="https://lexslo.github.io/weather-dashboard/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accentHover font-semibold inline-flex items-center gap-1 transition-colors">
+                            Deployed <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="music" class="mb-24 md:mb-32 scroll-mt-24" aria-labelledby="music-heading">
+            <h2 id="music-heading" class="text-3xl font-bold mb-8 pb-4 border-b border-borderSubtle text-white">Music / Audio</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wide">DAWs & Tools</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Ableton Live</li>
+                        <li>Pro Tools</li>
+                        <li>Digital Performer</li>
+                        <li>Logic Pro</li>
+                        <li>Ocenaudio</li>
+                        <li>Audacity</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Background</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Advanced music theory</li>
+                        <li>Sight reading</li>
+                        <li>Ear training</li>
+                        <li>Composition</li>
+                        <li>Transcription</li>
+                        <li>Analysis</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Tech & Skills</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Recording, mixing, mastering</li>
+                        <li>Advanced sound design</li>
+                        <li>Synthesis: hardware & software</li>
+                        <li>Complex signal processing</li>
+                        <li>Data to MIDI mapping</li>
+                        <li>Programming Arduinos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Audio Tracks List -->
+            <div class="space-y-12">
+                <article>
+                    <h4 class="text-xl font-semibold text-white mb-2">Delazed Effect Example</h4>
+                    <p class="text-gray-300 mb-2">
+                        An example of the digital audio effect I developed called Delazed. The only audio effect used in this entire clip is the Delazed delay I wrote. Over the course of about two minutes, each parameter is showcased. <a href="https://github.com/lexslo/delazed" class="text-accent hover:text-accentHover underline decoration-accent/50 underline-offset-4">Read listening notes</a>.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mb-3" aria-label="Tags">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Sound Design</li>
+                    </ul>
+                    <audio controls aria-label="Delazed Effect Example Audio Track">
+                        <source src="assets/media/delazed-musical-example.mp3" type="audio/mpeg">
+                        <source src="assets/media/delazed-musical-example.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+
+                <article>
+                    <h4 class="text-xl font-semibold text-white mb-2">Annihilated</h4>
+                    <p class="text-gray-300 mb-2">
+                        I designed this soundscape using multiple high pass and low pass filters in Ableton Live's Wavetable instrument to create movement and suspense. One note is playing the entire time, and all effects are achieved solely through adjusting multiple filter cutoffs with LFOs and automation.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mb-3" aria-label="Tags">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Sound Design</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Ableton</li>
+                    </ul>
+                    <audio controls aria-label="Annihilated Audio Track">
+                        <source src="assets/media/Annihilated.mp3" type="audio/mpeg">
+                        <source src="assets/media/Annihilated.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+
+                <article>
+                    <h4 class="text-xl font-semibold text-white mb-2">Sun Rises West</h4>
+                    <p class="text-gray-300 mb-2">
+                        The chords and melody are all derived from a Native American flute recording. The flute samples are layered and pitched to create a rich texture. I manipulated samples of a deck of cards, a door knob, crunching leaves, and a kalimba to add more percussive interest, rhythm, and sonic contrast.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mb-3" aria-label="Tags">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Experimental</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Ableton</li>
+                    </ul>
+                    <audio controls aria-label="Sun Rises West Audio Track">
+                        <source src="assets/media/sunriseswest_clip.mp3" type="audio/mpeg">
+                        <source src="assets/media/sunriseswest_clip.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+
+                <article>
+                    <h4 class="text-xl font-semibold text-white mb-2">Sunbeam</h4>
+                    <p class="text-gray-300 mb-2">
+                        This is an excerpt from one of six songs I wrote and recorded for an EP. I played bass, guitar, and synth live. For the drums, I used my own recorded samples mapped to a Drum Rack in Ableton Live.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mb-3" aria-label="Tags">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Indie Pop</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Ableton</li>
+                    </ul>
+                    <audio controls aria-label="Sunbeam Audio Track">
+                        <source src="assets/media/sunbeam_clip.mp3" type="audio/mpeg">
+                        <source src="assets/media/sunbeam_clip.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+
+                <article>
+                    <h4 class="text-xl font-semibold text-white mb-2">Blame the Moon</h4>
+                    <p class="text-gray-300 mb-2">
+                        This is an excerpt from one of six songs I wrote and recorded for an EP. I played bass, guitar, and synth live. For the drums, I used my own recorded samples mapped to a Drum Rack in Ableton Live.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mb-3" aria-label="Tags">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Synth Pop</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Ableton</li>
+                    </ul>
+                    <audio controls aria-label="Blame the Moon Audio Track">
+                        <source src="assets/media/blamemoon_clip.mp3" type="audio/mpeg">
+                        <source src="assets/media/blamemoon_clip.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+
+                <article>
+                    <h4 class="text-xl font-semibold text-white mb-2">Call of the Void</h4>
+                    <p class="text-gray-300 mb-2">
+                        This excerpt showcases my sound design skills in Kyma, an advanced real time audio and sound design application. The primary sound sample used is a recording of me tapping a drinking glass. The fluttering sounds as well as the pitched bell sounds are all derived from this sample.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mb-3" aria-label="Tags">
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Sound Design</li>
+                        <li class="px-3 py-1 text-xs border border-borderSubtle rounded-full text-gray-400">Kyma</li>
+                    </ul>
+                    <audio controls aria-label="Call of the Void Audio Track">
+                        <source src="assets/media/callvoid_clip.mp3" type="audio/mpeg">
+                        <source src="assets/media/callvoid_clip.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-darkBg border-t border-borderSubtle py-12 mt-12 scroll-mt-24" aria-labelledby="contact-heading">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 id="contact-heading" class="sr-only">Contact Information</h2>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                
+                <ul class="flex flex-wrap justify-center gap-6 text-sm font-semibold tracking-wide">
+                    <li>
+                        <a href="mailto:lexslovik@gmail.com" class="text-lightText hover:text-accent transition-colors" aria-label="Email me at lexslovik@gmail.com">
+                            Email
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/lexslo" target="_blank" rel="noopener noreferrer" class="text-lightText hover:text-accent transition-colors" aria-label="Visit my GitHub profile">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/lex-meadows/" target="_blank" rel="noopener noreferrer" class="text-lightText hover:text-accent transition-colors" aria-label="Visit my LinkedIn profile">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://soundcloud.com/lex-slovik" target="_blank" rel="noopener noreferrer" class="text-lightText hover:text-accent transition-colors" aria-label="Listen to my tracks on SoundCloud">
+                            SoundCloud
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:9096938734" class="text-lightText hover:text-accent transition-colors" aria-label="Call me at 909.693.8734">
+                            909.693.8734
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="text-sm text-gray-500">
+                    &copy; <span id="year"></span> Lex Meadows. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set the current year dynamically in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
